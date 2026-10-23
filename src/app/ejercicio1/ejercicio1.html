@@ -1,0 +1,68 @@
+<div class="pagina-reloj">
+  <div class="tarjeta-reloj">
+
+    <div class="encabezado">
+      <span class="icono-reloj">◷</span>
+      <p class="subtitulo">TU TIEMPO, DE UN VISTAZO</p>
+      <h1>Mi reloj</h1>
+      <p class="descripcion">La hora actual, segundo a segundo.</p>
+    </div>
+
+    <div class="reloj-principal">
+      <p class="etiqueta">HORA LOCAL</p>
+
+      <div class="hora">
+        {{ fechaHora | date:(formato24h ? 'HH:mm:ss' : 'hh:mm:ss a') }}
+      </div>
+
+      <p class="fecha">
+        {{ fechaHora | date:'EEEE, d MMMM yyyy' }}
+      </p>
+    </div>
+
+    <div class="selector-formato">
+      <span>Formato de hora</span>
+
+      <label class="interruptor">
+        <input
+          type="checkbox"
+          [checked]="formato24h"
+          (change)="formato24h = !formato24h; actualizarHora()"
+        >
+        <span class="deslizador"></span>
+      </label>
+
+      <span class="formato-texto">
+        {{ formato24h ? '24 horas' : '12 horas' }}
+      </span>
+    </div>
+
+    <div class="separador"></div>
+
+    <div class="reloj-secundario">
+      <div class="informacion-ciudad">
+        <p class="etiqueta">OTRA PARTE DEL MUNDO</p>
+        <h2>{{ nombreCiudad }}</h2>
+        <p class="hora-ciudad">{{ horaCiudad }}</p>
+      </div>
+
+      <div class="selector-ciudad">
+        <label for="ciudad">Elegir ciudad</label>
+
+        <select
+          id="ciudad"
+          [value]="zonaCiudad"
+          (change)="cambiarCiudad($event)"
+        >
+          <option value="Europe/London">Londres</option>
+          <option value="America/New_York">Nueva York</option>
+          <option value="Asia/Tokyo">Tokio</option>
+          <option value="Europe/Madrid">Madrid</option>
+        </select>
+      </div>
+    </div>
+
+    <p class="pie">El tiempo no se detiene. ⏱</p>
+
+  </div>
+</div>

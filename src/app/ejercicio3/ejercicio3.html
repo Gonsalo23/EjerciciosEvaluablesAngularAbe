@@ -1,0 +1,52 @@
+<div class="contenedor">
+  <h1>Historial de colores</h1>
+  <p class="descripcion">
+    Cambia el color del recuadro y utiliza el historial para volver a colores anteriores.
+  </p>
+
+  <div class="panel">
+    <label for="selectorColor">Elige un color:</label>
+
+    <select id="selectorColor" (change)="cambiarColor($event)">
+      @for (color of colores; track color.valor) {
+        <option [value]="color.valor" [selected]="colorActual === color.valor">
+          {{ color.nombre }}
+        </option>
+      }
+    </select>
+
+    <div
+      class="recuadro"
+      [style.background-color]="colorActual">
+    </div>
+
+    <div class="informacion">
+      <p><strong>Cambios registrados:</strong> {{ numeroCambios }}</p>
+      <p><strong>Posición actual:</strong> {{ posicionActual }} de {{ numeroCambios }}</p>
+    </div>
+
+    <div class="botones">
+      <button type="button" (click)="atras()">← Atrás</button>
+      <button type="button" (click)="adelante()">Adelante →</button>
+    </div>
+
+    <div class="retroceso">
+      <label for="cantidadAtras">Número de cambios que retroceder:</label>
+
+      <input
+        id="cantidadAtras"
+        type="number"
+        min="1"
+        [value]="cambiosAtras"
+        (input)="actualizarCambios($event)">
+
+      <button type="button" (click)="retrocederCambios()">
+        Retroceder
+      </button>
+    </div>
+
+    @if (mensaje) {
+      <p class="error">{{ mensaje }}</p>
+    }
+  </div>
+</div>

@@ -1,0 +1,246 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.pagina-reloj {
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 16px;
+  background:
+    radial-gradient(ellipse at top, #173c32 0%, transparent 55%),
+    #0b1110;
+  color: #f1f5f3;
+}
+
+.tarjeta-reloj {
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  padding: 38px;
+  background: rgba(20, 29, 26, 0.96);
+  border: 1px solid #2a4238;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.encabezado {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.icono-reloj {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 12px;
+  border-radius: 18px;
+  background: #203d30;
+  color: #65e6a1;
+  font-size: 38px;
+}
+
+.subtitulo {
+  color: #65e6a1;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.encabezado h1 {
+  margin: 8px 0;
+  font-size: 38px;
+  font-weight: 750;
+}
+
+.descripcion {
+  margin: 0;
+  color: #9eafa6;
+  font-size: 14px;
+}
+
+.reloj-principal {
+  padding: 28px 15px;
+  text-align: center;
+  background: #101916;
+  border: 1px solid #273a31;
+  border-radius: 18px;
+}
+
+.etiqueta {
+  margin: 0 0 12px;
+  color: #8ba398;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hora {
+  color: #70efaa;
+  font-size: clamp(38px, 9vw, 62px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.fecha {
+  margin: 12px 0 0;
+  color: #c0ccc5;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.selector-formato {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0;
+  color: #d7e2db;
+  font-size: 14px;
+}
+
+.formato-texto {
+  color: #65e6a1;
+  font-weight: 600;
+}
+
+.interruptor {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 25px;
+}
+
+.interruptor input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.deslizador {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background: #45554c;
+  border-radius: 30px;
+  transition: 0.25s;
+}
+
+.deslizador::before {
+  content: "";
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.25s;
+}
+
+.interruptor input:checked + .deslizador {
+  background: #35bd78;
+}
+
+.interruptor input:checked + .deslizador::before {
+  transform: translateX(21px);
+}
+
+.interruptor input:focus-visible + .deslizador {
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+
+.separador {
+  height: 1px;
+  margin: 25px 0;
+  background: #2a3b32;
+}
+
+.reloj-secundario {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.reloj-secundario h2 {
+  margin: 0;
+  font-size: 23px;
+}
+
+.hora-ciudad {
+  margin: 8px 0 0;
+  color: #70efaa;
+  font-size: 28px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.selector-ciudad {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.selector-ciudad label {
+  color: #9eafa6;
+  font-size: 12px;
+}
+
+.selector-ciudad select {
+  padding: 11px 13px;
+  color: #f1f5f3;
+  background: #101916;
+  border: 1px solid #3b5849;
+  border-radius: 10px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.selector-ciudad select:focus {
+  outline: 2px solid #65e6a1;
+  outline-offset: 2px;
+}
+
+.selector-ciudad option {
+  background: #101916;
+  color: white;
+}
+
+.pie {
+  margin: 30px 0 0;
+  color: #71877a;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .tarjeta-reloj {
+    padding: 25px 18px;
+  }
+
+  .encabezado h1 {
+    font-size: 32px;
+  }
+
+  .reloj-secundario {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .selector-ciudad select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

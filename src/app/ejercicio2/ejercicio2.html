@@ -1,0 +1,111 @@
+<div class="pagina-generador">
+  <div class="tarjeta-generador">
+
+    <div class="encabezado">
+      <div class="icono-dado">🎲</div>
+
+      <p class="subtitulo">LA SUERTE ESTÁ ECHADA</p>
+      <h1>Generador aleatorio</h1>
+      <p class="descripcion">
+        Configura tus números y deja que el azar decida.
+      </p>
+    </div>
+
+    <div class="formulario">
+
+      <div class="campo">
+        <label for="cantidad">Cantidad de números</label>
+
+        <input
+          id="cantidad"
+          type="number"
+          min="1"
+          step="1"
+          [(ngModel)]="cantidad"
+        >
+      </div>
+
+      <div class="campos-intervalo">
+
+        <div class="campo">
+          <label for="minimo">Número mínimo</label>
+
+          <input
+            id="minimo"
+            type="number"
+            step="1"
+            [(ngModel)]="minimo"
+          >
+        </div>
+
+        <div class="campo">
+          <label for="maximo">Número máximo</label>
+
+          <input
+            id="maximo"
+            type="number"
+            step="1"
+            [(ngModel)]="maximo"
+          >
+        </div>
+
+      </div>
+
+      <label class="opcion-repetidos">
+        <input
+          type="checkbox"
+          [(ngModel)]="permitirRepetidos"
+        >
+
+        <span class="checkbox-personalizado"></span>
+
+        <span class="texto-opcion">
+          <strong>Permitir números repetidos</strong>
+          <small>
+            {{ permitirRepetidos
+            ? 'Un número puede aparecer varias veces.'
+            : 'Cada número aparecerá como máximo una vez.' }}
+          </small>
+        </span>
+      </label>
+
+      <button
+        class="boton-generar"
+        type="button"
+        (click)="generarNumeros()"
+      >
+        🎲 Generar números
+      </button>
+
+    </div>
+
+    @if (mensajeError) {
+      <div class="mensaje-error">
+        ⚠️ {{ mensajeError }}
+      </div>
+    }
+
+    @if (numeros.length > 0) {
+      <div class="resultado">
+
+        <p class="etiqueta">TUS NÚMEROS</p>
+
+        <div class="lista-numeros">
+          @for (numero of numeros; track $index) {
+            <span class="numero">{{ numero }}</span>
+          }
+        </div>
+
+        <p class="texto-resultado">
+          Se han generado {{ numeros.length }} números.
+        </p>
+
+      </div>
+    }
+
+    <p class="pie">
+      El azar también tiene su método. ✨
+    </p>
+
+  </div>
+</div>

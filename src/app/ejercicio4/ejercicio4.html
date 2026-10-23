@@ -1,0 +1,43 @@
+<div class="contenedor">
+  <h1>Interacción con ventana hija</h1>
+
+  <p class="descripcion">
+    Abre una ventana nueva y utiliza los controles para moverla por la pantalla.
+  </p>
+
+  <div class="panel">
+    @if (!ventana || ventana.closed) {
+      <p class="estado">No hay ninguna ventana abierta.</p>
+
+      <button type="button" class="boton-principal" (click)="abrirVentana()">
+        Abrir ventana (400 × 400)
+      </button>
+    } @else {
+      <p class="estado abierta">Ventana abierta correctamente.</p>
+
+      <div class="controles">
+        <button type="button" (click)="moverVentana('arriba')">
+          ↑ Arriba
+        </button>
+
+        <div class="fila">
+          <button type="button" (click)="moverVentana('izquierda')">
+            ← Izquierda
+          </button>
+
+          <button type="button" (click)="moverVentana('derecha')">
+            Derecha →
+          </button>
+        </div>
+
+        <button type="button" (click)="moverVentana('abajo')">
+          ↓ Abajo
+        </button>
+      </div>
+
+      <button type="button" class="boton-cerrar" (click)="cerrarVentana()">
+        Cerrar ventana
+      </button>
+    }
+  </div>
+</div>

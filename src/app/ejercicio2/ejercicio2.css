@@ -1,0 +1,258 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.pagina-generador {
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 16px;
+  background:
+    radial-gradient(ellipse at top, #173c32 0%, transparent 55%),
+    #0b1110;
+  color: #f1f5f3;
+}
+
+.tarjeta-generador {
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  padding: 38px;
+  background: rgba(20, 29, 26, 0.96);
+  border: 1px solid #2a4238;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.encabezado {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.icono-dado {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 65px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  background: #203d30;
+  font-size: 36px;
+}
+
+.subtitulo {
+  color: #65e6a1;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.encabezado h1 {
+  margin: 10px 0;
+  font-size: 32px;
+  font-weight: 750;
+}
+
+.descripcion {
+  color: #9eafa6;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+  min-width: 0;
+}
+
+.campo label {
+  color: #c9d6ce;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.campo input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  color: #f1f5f3;
+  background: #101916;
+  border: 1px solid #344a3e;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input:focus {
+  border-color: #65e6a1;
+  box-shadow: 0 0 0 3px rgba(101, 230, 161, 0.1);
+}
+
+.campos-intervalo {
+  display: flex;
+  gap: 16px;
+}
+
+.opcion-repetidos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #101916;
+  border: 1px solid #2a4238;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.opcion-repetidos input {
+  width: 18px;
+  height: 18px;
+  accent-color: #35bd78;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.texto-opcion {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.texto-opcion strong {
+  color: #e5eee8;
+  font-size: 13px;
+}
+
+.texto-opcion small {
+  color: #8fa399;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.boton-generar {
+  width: 100%;
+  padding: 15px;
+  color: #07150d;
+  background: #65e6a1;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.boton-generar:hover {
+  background: #83f3b5;
+  transform: translateY(-2px);
+}
+
+.boton-generar:active {
+  transform: translateY(0);
+}
+
+.mensaje-error {
+  margin-top: 22px;
+  padding: 15px;
+  color: #ffb8b8;
+  background: #351d20;
+  border: 1px solid #71353b;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.resultado {
+  margin-top: 28px;
+  padding: 22px;
+  background: #101916;
+  border: 1px solid #2a4238;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.etiqueta {
+  color: #8ba398;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.lista-numeros {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.numero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 48px;
+  height: 48px;
+  padding: 0 8px;
+  box-sizing: border-box;
+  color: #70efaa;
+  background: #203d30;
+  border: 1px solid #37664c;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  animation: aparecer 0.25s ease-out;
+}
+
+.texto-resultado {
+  margin-bottom: 0;
+  color: #9eafa6;
+  font-size: 12px;
+}
+
+.pie {
+  margin: 30px 0 0;
+  color: #71877a;
+  font-size: 12px;
+  text-align: center;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .tarjeta-generador {
+    padding: 25px 18px;
+  }
+
+  .encabezado h1 {
+    font-size: 27px;
+  }
+
+  .campos-intervalo {
+    gap: 10px;
+  }
+}

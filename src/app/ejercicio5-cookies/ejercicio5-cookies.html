@@ -1,0 +1,48 @@
+<div class="contenedor">
+  <h1>Ejercicio 5: Cookies</h1>
+
+  @if (!nombreGuardado) {
+    <div class="panel">
+      <h2>Bienvenido</h2>
+
+      <p>Introduce tu nombre para continuar.</p>
+
+      <form (submit)="$event.preventDefault(); guardarNombre()">
+        <input
+          type="text"
+          placeholder="Tu nombre"
+          [value]="nombre"
+          (input)="nombre = $any($event.target).value"
+          required>
+
+        <button type="submit">Guardar nombre</button>
+      </form>
+    </div>
+  } @else {
+    <div class="panel">
+      <h2>¡Hola, {{ nombreGuardado }}!</h2>
+
+      <p><strong>Número de visitas:</strong> {{ visitas }}</p>
+
+      @if (ultimaVisita) {
+        <p><strong>Última visita anterior:</strong> {{ ultimaVisita }}</p>
+      } @else {
+        <p>¡Esta es tu primera visita!</p>
+      }
+
+      <label for="temaCookies">Elige tu tema:</label>
+
+      <select
+        id="temaCookies"
+        [value]="tema"
+        (change)="cambiarTema($event)">
+        <option value="oscuro">Oscuro</option>
+        <option value="claro">Claro</option>
+      </select>
+
+      <button class="boton-borrar" type="button" (click)="borrarDatos()">
+        Borrar cookies
+      </button>
+    </div>
+  }
+</div>
